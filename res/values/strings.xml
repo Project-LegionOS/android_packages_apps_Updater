@@ -33,7 +33,7 @@
           {version} - Build version
           {ziptype} - Build ziptype (vanilla/gapps)
     -->
-    <string name="updater_server_url" translatable="false">ttps://raw.githubusercontent.com/legionos-devices/OTA/11/{device}/{ziptype}.json</string>
+    <string name="updater_server_url" translatable="false">https://raw.githubusercontent.com/legionos-devices/OTA/master/{device}/{ziptype}.json</string>
     <string name="sf_download_url" translatable="false">https://sourceforge.net/projects/legionrom/files/{device}/{zip}</string>
     <string name="legion_download_url" translatable="false">https://sourceforge.net/projects/legionrom/files/{device}</string>
 
