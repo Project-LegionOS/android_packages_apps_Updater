@@ -151,14 +151,6 @@ public class Utils {
         return updates;
     }
 
-    public static String getLegionDownloadUrl(Context context) {
-        String device = SystemProperties.get(Constants.PROP_NEXT_DEVICE,
-                SystemProperties.get(Constants.PROP_DEVICE));
-        String legionDownloadUrl = context.getString(R.string.legion_download_url);
-
-        return legionDownloadUrl.replace("{device}", device);
-    }
-
     public static String getServerURL(Context context) {
         //String incrementalVersion = SystemProperties.get(Constants.PROP_BUILD_VERSION_INCREMENTAL);
         String device = SystemProperties.get(Constants.PROP_NEXT_DEVICE,

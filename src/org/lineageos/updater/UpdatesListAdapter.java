@@ -20,7 +20,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.net.Uri;
 import android.os.BatteryManager;
 import android.os.PowerManager;
 import android.os.SystemProperties;
@@ -316,12 +315,9 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
     private void startDownloadWithWarning(final String downloadId) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(mActivity);
         boolean warn = preferences.getBoolean(Constants.PREF_MOBILE_DATA_WARNING, true);
-        Intent openLegionChangelog = new Intent(Intent.ACTION_VIEW,
-                Uri.parse(Utils.getChangelogURL(mActivity)));
 
         if (Utils.isOnWifiOrEthernet(mActivity) || !warn) {
             mUpdaterController.startDownload(downloadId);
-            mActivity.startActivity(openLegionChangelog);
             return;
         }
 
@@ -342,7 +338,6 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
                                 mActivity.supportInvalidateOptionsMenu();
                             }
                             mUpdaterController.startDownload(downloadId);
-                            mActivity.startActivity(openLegionChangelog);
                         })
                 .setNegativeButton(android.R.string.cancel, null)
                 .show();
