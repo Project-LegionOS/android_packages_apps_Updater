@@ -172,7 +172,14 @@ public class Utils {
     }
 
     public static String getChangelogURL(Context context) {
-        return context.getString(R.string.menu_changelog_url);
+        String device = SystemProperties.get(Constants.PROP_NEXT_DEVICE,
+                SystemProperties.get(Constants.PROP_DEVICE));
+        String ziptype = SystemProperties.get(Constants.PROP_ZIP_TYPE).toLowerCase(Locale.ROOT);
+
+        String changeurl = context.getString(R.string.menu_changelog_url);
+
+	return changeurl.replace("{device}", device)
+                .replace("{ziptype}", ziptype);
     }
 
     public static void triggerUpdate(Context context, String downloadId) {
